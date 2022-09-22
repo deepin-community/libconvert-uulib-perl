@@ -1,0 +1,15 @@
+Description: precendence -> precedence
+Author: Damyan Ivanov <dmn@debian.org>
+Forwarded: no
+
+--- a/UUlib.pm
++++ b/UUlib.pm
+@@ -144,7 +144,7 @@ this document and especially the non-tri
+   OPT_VERSION	version number MAJOR.MINORplPATCH (ro)
+   OPT_FAST	assumes only one part per file
+   OPT_DUMBNESS	switch off the program's intelligence
+-  OPT_BRACKPOL	give numbers in [] higher precendence
++  OPT_BRACKPOL	give numbers in [] higher precedence
+   OPT_VERBOSE	generate informative messages
+   OPT_DESPERATE	try to decode incomplete files
+   OPT_IGNREPLY	ignore RE:plies (off by default)

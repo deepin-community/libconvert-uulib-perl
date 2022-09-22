@@ -1,0 +1,50 @@
+--- libconvert-uulib-perl-0.310.orig/Makefile.PL
++++ libconvert-uulib-perl-0.310/Makefile.PL
+@@ -1,22 +1,5 @@
+ use ExtUtils::MakeMaker;
+ 
+-sub MY::postamble {
+-    my $postamble =<<'END';
+-
+-uulib/Makefile:
+-	cd uulib && ./configure --with-cc="$(CC)" --with-cflags="$(CFLAGS) $(CCCDLFLAGS) $(OPTIMIZE)"
+-
+-clean::
+-	-cd uulib && make distclean
+-
+-force:
+-
+-$(MYEXTLIB): uulib/Makefile uulib/uulib.c force
+-	cd uulib && $(MAKE) all
+-
+-END
+-}
+-
+ WriteMakefile(
+     'dist'	=> {
+ 	            PREOP	=> 'pod2text UUlib.pm | tee README >$(DISTVNAME)/README; chmod -R u=rwX,go=rX . ; chmod -R u=rwX,go=rX . ;',
+@@ -25,8 +8,7 @@
+ 	           },
+     'NAME'	=> 'Convert::UUlib',
+     'VERSION_FROM' => 'UUlib.pm',
+-    'MYEXTLIB'  => 'uulib/libuu$(LIB_EXT)',
+-    'LIBS'	=> [''],
++    'LIBS'	=> ['-luu'],
+     'DEFINE'	=> '',
+     'INC'	=> '',
+ );
+--- libconvert-uulib-perl-0.310.orig/UUlib.xs
++++ libconvert-uulib-perl-0.310/UUlib.xs
+@@ -2,9 +2,9 @@
+ #include "perl.h"
+ #include "XSUB.h"
+ 
+-#include "uulib/fptools.h"
+-#include "uulib/uudeview.h"
+-#include "uulib/uuint.h"
++#include <fptools.h>
++#include <uudeview.h>
++#include <uuint.h>
+ 
+ static int
+ not_here (char *s)

@@ -1,0 +1,41 @@
+#!/usr/bin/make -f
+# -*- mode: makefile; coding: utf-8 -*-
+# Copyright © 2003-2010 Jonas Smedegaard <dr@jones.dk>
+# Description: Main Debian packaging script for Convert::UUlib
+#
+# This program is free software; you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation; either version 2, or (at your option)
+# any later version.
+#
+# This program is distributed in the hope that it will be useful, but
+# WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+# General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
+DEB_BUILD_MAINT_OPTIONS := hardening=+bindnow
+include /usr/share/dpkg/buildflags.mk
+
+-include /usr/share/cdbs/1/rules/upstream-tarball.mk
+-include /usr/share/cdbs/1/rules/utils.mk
+include /usr/share/cdbs/1/class/perl-makemaker.mk
+include /usr/share/cdbs/1/rules/debhelper.mk
+
+# Silence optional build-dependencies to ease backporting
+CDBS_BUILD_DEPENDS_rules_upstream-tarball =
+CDBS_BUILD_DEPENDS_rules_utils_copyright-check =
+
+DEB_UPSTREAM_PACKAGE = Convert-UUlib
+#DEB_UPSTREAM_URL = http://www.cpan.org/modules/by-module/Convert
+DEB_UPSTREAM_URL = http://search.cpan.org/CPAN/authors/id/M/ML/MLEHMANN
+DEB_UPSTREAM_TARBALL_MD5 = a6486df1d9ce319406fb9d5a610da759
+
+# source unavailable
+DEB_UPSTREAM_REPACKAGE_EXCLUDES += ./doc/library.pdf
+
+CFLAGS += -D_GNU_SOURCE -I. -DHAVE_CONFIG_H -fPIC
+
+DEB_INSTALL_EXAMPLES_libconvert-uulib-perl = example-decoder

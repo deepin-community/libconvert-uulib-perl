@@ -1,0 +1,331 @@
+libconvert-uulib-perl (1:1.5~dfsg-1) unstable; urgency=medium
+
+  * Team upload
+
+  [ Salvatore Bonaccorso ]
+  * Change Vcs-Git to canonical URI (git://anonscm.debian.org)
+
+  [ Axel Beckert ]
+  * debian/copyright: migrate pre-1.0 format to 1.0 using "cme fix dpkg-
+    copyright"
+  * Replace (also invalid) search.cpan.org Homepage header with MetaCPAN URL.
+
+  [ Damyan Ivanov ]
+  * New upstream version 1.5
+  * bump debhelper compatibility level from 6 to 9
+  * add libcanary-stability-perl to build dependencies
+  * use canonical Vcs-* header form
+  * add Testsuite header
+  * build with bindnow hardening option
+  * use https in debian/watch
+  * patch a typo in POD
+  * declare conformance with Policy 4.1.1
+
+ -- Damyan Ivanov <dmn@debian.org>  Sat, 04 Nov 2017 21:49:03 +0200
+
+libconvert-uulib-perl (1:1.4~dfsg-1) unstable; urgency=high
+
+  * New upstream release.
+    + Fixes Secunia Advisory SA42998.
+    Closes: bug#616151. Thanks to Janne Pikkarainen.
+  * Bump epoch.
+  * Update copyright file:
+    + Rewrite using draft 174 of DEP-5 format.
+    + Fix Upstream-Name.
+    + Add verbatim licensing text for main Files section.
+    + Quote license names in License field comments.
+    + Rewrap license fields at 72 chars, and shorten comments.
+  * Bump policy compliance to standards-version 3.9.2.
+  * Include CDBS class perl-makemaker.mk (not deprecated perlmodule.mk).
+    Tighten build-dependency on cdbs.
+  * Set CFLAGS -D_GNU_SOURCE -DHAVE_CONFIG_H -fPIC, to avoid build
+    failure.
+  * Set urgency=high due to fixing security bugs.
+
+ -- Jonas Smedegaard <dr@jones.dk>  Sun, 05 Jun 2011 16:16:32 +0200
+
+libconvert-uulib-perl (1.33~dfsg-1) unstable; urgency=low
+
+  * New upstream release.
+
+  [ Salvatore Bonaccorso ]
+  * Build-depend unversioned on perl: permitted by Debian Policy now.
+
+  [ Jonas Smedegaard ]
+  * Drop locally included CDBS snippets: included in main cdbs now.
+  * Add README.source. Drop custom hints about CDBS.
+  * Add proper licensing header to debian/rules.
+  * Packaging moved to Git:
+    + Update Vcs stanzas.
+    + Add git-buildpackage configfile, enabling signed tags and use of
+      pristine-tar.
+    + Use source format 3.0 (quilt), with suitable local-options.
+    + Git-ignore quilt .pc dir.
+  * Bump Policy compliance to standards-version 3.9.1.
+  * Ease backporting to Debian stable:
+    + Relax inclusion of CDBS snippets required only in
+      DEB_MAINTAINER_MODE, and suppress related build-dependencies.
+    + Lower debhelper compat level to 6 (debhelper 7 is in Debian
+      stable, but cdbs did not properly support it back then, and we do
+      not explicitly use any recently added features yet).
+  * Rewrite copyright file using draft rev135 of DEP5 format.
+  * Repackage upstream source, stripping doc/library.pdf: source
+    unavailable. Suppress dfsg sufffix in watch file.
+
+ -- Jonas Smedegaard <dr@jones.dk>  Sun, 17 Oct 2010 11:31:44 +0200
+
+libconvert-uulib-perl (1.12-1) unstable; urgency=low
+
+  [ Jonas Smedegaard ]
+  * Depend on ${misc:Depends}.
+
+  [ gregor herrmann ]
+  * debian/watch: use dist-based URL.
+
+  [ Damyan Ivanov ]
+  * debian/watch: do not chain svn-upgrade on new upstream versions
+
+  [ gregor herrmann ]
+  * debian/control: Changed: Switched Vcs-Browser field to ViewSVN
+    (source stanza).
+
+  [ Nathan Handler ]
+  * debian/watch: Update to ignore development releases.
+
+  [ Gunnar Wolf ]
+  * Standards-version 3.7.3 → 3.8.2 (no changes needed)
+    )
+  * Updated to debhelper compat level 7
+  * Added myself as an uploader
+  * Added build-dependency on quilt
+
+ -- Gunnar Wolf <gwolf@debian.org>  Mon, 10 Aug 2009 19:51:07 -0500
+
+libconvert-uulib-perl (1.11-1) unstable; urgency=medium
+
+  * New upstream release. Bugfix only - fixing "infinite-looping problem
+    when scanning in freestyle mode", so possibly security-related.
+  * Setting urgency=medium due to the possible security relation.
+  * Update local cdbs tweaks:
+    + Various updates to copyright-check.mk, most importantly relaxing
+      to only warn by default.  Closes: bug#487062, thanks to Lucas
+      Nussbaum.
+    + Drop wget options broken with recent versions of wget in
+      update-tarball.mk.
+    + Cosmetic updates to README.cdbs-tweaks.
+  * Update debian/copyright-hints.
+  * Bump debhelper compatibility level to 6.
+  * Semi-auto-update debian/control to update build-dependencies:
+      DEB_AUTO_UPDATE_DEBIAN_CONTROL=yes fakeroot debian/rules clean
+
+ -- Jonas Smedegaard <dr@jones.dk>  Fri, 27 Jun 2008 12:13:53 +0200
+
+libconvert-uulib-perl (1.09-3) unstable; urgency=low
+
+  * Really update buildinfo.mk as promised in -2 changelog entry.
+  * Update copyright-check cdbs snippet to parse licensecheck using perl:
+    + No longer randomly drops newlines
+    + More compact hint file (and ordered more like wiki-proposed new copyright
+      syntax).
+    + No longer ignore files without copyright.
+  * Update copyright_hints.
+
+ -- Jonas Smedegaard <dr@jones.dk>  Thu, 28 Feb 2008 00:01:21 +0100
+
+libconvert-uulib-perl (1.09-2) unstable; urgency=low
+
+  * Pass over maintenance of the package to the Perl group: Change Maintainer,
+    and add myself to Uploaders.
+  * Change debian/watch to use svn-upgrade (not uupdate).
+  * Move Homepage to own field (from pseudo-field in long description).
+  * Add Vcs-* fields.
+  * Bump up standards-version to 3.7.3 (no changes needed).
+  * Bump dephelper compatibility level to 5.
+  * Update local cdbs snippets:
+    + Major improvements to update-tarball (but none of them affecting this
+      current packaging).
+    + Major improvements to copyright-check, including new versioned
+      build-dependency on devscripts.  Update debian/copyright_hints.
+    + Drop buildcore.mk override.  Set DEB_AUTO_UPDATE_DEBIAN_CONTROL directly
+      instead when needed.
+    + Fix buildinfo.mk invoking dh-buildinfo only once.
+    + Update debian/README.cdbs-tweaks to no longer mention buildcore.mk
+      override.
+  * Fix double cdbs build-dependencies in debian/rules.
+  * Semi-auto-update debian/control to apply changes contained in the above:
+    DEB_AUTO_UPDATE_DEBIAN_CONTROL=yes fakeroot debian/rules clean
+
+ -- Jonas Smedegaard <dr@jones.dk>  Thu, 21 Feb 2008 02:27:58 +0100
+
+libconvert-uulib-perl (1.09-1) unstable; urgency=low
+
+  * New upstream release.
+  * Update CDBS tweaks:
+    + Replace auto-update.mk with overloading buildcore.mk.
+    + Fix applying buildinfo only once.
+    + Check copyright strings in pre-build (in clean target it cannot be
+      ensured to run last and thus false positives could occur).
+    + Add upstream-tarball.mk to implement get-orig-source target.
+    + Add debian/README.cdbs-tweaks to source and advertise it in
+      debian/rules.
+  * Drop version number from homepage in long description.
+  * Improve patch handling:
+    + Renumber patches to use 4-digit scheme.
+    + Document version scheme.
+    + Use patchsys-quilt.mk for patch handling.
+    + Explicitly disable the two existing patches, and document the
+      reasoning (upstream strongly discourages linking against libuu).
+    + Fix double build-dependencies in debian/rules.
+  * Semi-auto-update debian/control:
+      DEB_BUILD_OPTIONS=cdbs-autoupdate fakeroot debian/rules pre-build
+
+ -- Jonas Smedegaard <dr@jones.dk>  Sun, 12 Aug 2007 12:58:10 +0200
+
+libconvert-uulib-perl (1.06-1) unstable; urgency=low
+
+  * New upstream release.
+  * Bump standards-version to 3.7.2 (no changes needed).
+  * Advertise search.cpan.org as Homepage in long description.
+  * Bump watch file version and use uversionmangle to chop 3-digit minor
+    version into manageable pieces (1.051->1.05.1 is lower than 1.06).
+  * Add local cdbs snippet copyright-check.mk.
+  * Enable cdbs auto-update feature using local snippet auto-update.mk.
+  * Update local cdbs snippet buildinfo.mk to use correct namespace.
+  * Update debian/copyright, thanks to copyright-check.mk: uulib/crc32.c
+    has a BSD-style license. Adjust headlines to mention licensing info
+    (not only copyright).
+
+ -- Jonas Smedegaard <dr@jones.dk>  Sun, 16 Jul 2006 21:11:26 +0200
+
+libconvert-uulib-perl (1.0.5.1-1) unstable; urgency=low
+
+  * New upstream release.
+
+ -- Jonas Smedegaard <dr@jones.dk>  Sat, 26 Mar 2005 04:21:03 +0100
+
+libconvert-uulib-perl (1.0.3-2) unstable; urgency=high
+
+  * Fix watch file.
+  * Use generic (but unofficial) buildinfo cdbs snippet.
+  * Set urgency=high to hopefully get this into sarge in time (the
+    changes are small but valuable).
+
+ -- Jonas Smedegaard <dr@jones.dk>  Thu,  4 Nov 2004 02:16:59 +0100
+
+libconvert-uulib-perl (1.0.3-1) unstable; urgency=high
+
+  * New upstream release.
+  * Upstream changelog asked to postpone widespread use of this release
+    until it either had "proved stable" or bugs in UUlib was proven to
+    also be in this package. I consider 4 months of no newer upstream
+    release as a proof of stability, and - sadly - it seems UUlib bugs
+    have also proven to be here: Hopefully this fixes Bug#268100
+    (failure unpacking files starting with :0:). Leaving bug open in the
+    BTS until verified, but setting urgency=high.
+  * Update watch file.
+  * Add comment to watch file hinting on its usage.
+
+ -- Jonas Smedegaard <dr@jones.dk>  Tue,  4 May 2004 18:11:30 +0200
+
+libconvert-uulib-perl (1.0.1-1) unstable; urgency=low
+
+  * New upstream release.
+  * Remove Debian-specific notes in debian/changelog provided in
+    debian/changelog as well.
+  * Update debian/watch
+
+ -- Jonas Smedegaard <dr@jones.dk>  Sun, 28 Mar 2004 16:57:47 +0200
+
+libconvert-uulib-perl (1.0-1) unstable; urgency=low
+
+  * New upstream release.
+  * Switch back to linking statically against self-provided uulib source
+    (instead of linking against libuu-dev), and drop build-dependence on
+    uulib-dev: Included uulib is actually a fork with valuable
+    enhancements compared to uulib in uudeview. This closes: Bug#223758.
+    Keep patches to link against uulib-dev, just in case...
+  * Add copyright and license notice (GPLv2 or later) of included uulib
+    to debian/copyright.
+  * The current forked uulib is believed to behave correctly. This
+    closes: Bug#212616 (if not then please reopen).
+  * According to upstream author, compiler warnings are intentional, and
+    bugreporter never provided details on the claimed runtime error, so
+    I choose to believe there are none. This closes: Bug#160069 (if not
+    then please reopen).
+
+ -- Jonas Smedegaard <dr@jones.dk>  Wed, 24 Dec 2003 23:36:51 +0100
+
+libconvert-uulib-perl (0.310-2) unstable; urgency=low
+
+  * Link against libuu, and build-depend on libuu-dev.
+  * Build using cdbs.
+  * Standards-Version 3.6.1 (no changes needed).
+  * Build-depend on cdbs, and tighten build-dependency on debhelper.
+  * Hack UUlib.xs: Strip UUOPT_DOTDOT and UUSetFileNameCallback that is
+    gone in newest beta of uulib (hope it doesn't break anything...).
+  * Use (and build-depend on) dh-buildinfo.
+
+ -- Jonas Smedegaard <dr@jones.dk>  Sun, 19 Oct 2003 20:25:57 +0200
+
+libconvert-uulib-perl (0.310-1) unstable; urgency=medium
+
+  * Adopting package (Thanks, Graeme).
+  * Remove trailing dot from short description to please lintian.
+  * Add TODO about dynamic linking against libuu-dev (requires changes
+    to the packaging of uudeview).
+  * Rewrite debian/copyright:
+    + Quote upstream copyright verbatim.
+    + Reorder topics to be similar to most other pckages.
+    + Drop mentioning the author of UUlib.
+  * Lower build-dependency on perl as described in perl-policy 3.3 to
+    allow building on woody.
+  * Switch debhelper hint from DH_COMPAT to debian/compat, and use v4.
+  * Change DEB_BUILD_OPTIONS to support noopt, and always compile with -
+    g.
+  * Remove unneeded cruft in debian/rules.
+  * Claim compliance with version 3.5.9 of Debian Policy.
+  * Acknowledge my own NMU (really closes: Bug#).
+
+ -- Jonas Smedegaard <dr@jones.dk>  Wed, 23 Apr 2003 19:23:23 +0200
+
+libconvert-uulib-perl (0.310-0.1) unstable; urgency=medium
+
+  * NMU of newer upstream release (Closes: Bug#190199).
+  * Set urgency=medium as the release fixes to buffer overflows.
+  * Remove noise at end of this changelog.
+  * Change section to perl.
+
+ -- Jonas Smedegaard <dr@jones.dk>  Wed, 23 Apr 2003 15:19:56 +0200
+
+libconvert-uulib-perl (0.212-1.1) unstable; urgency=low
+
+  * NMU for perl 5.8.
+  * Bump perl build-dependency to >= 5.8.0-7 (closes: #158723).
+
+ -- Colin Watson <cjwatson@debian.org>  Sat, 31 Aug 2002 02:17:41 +0100
+
+libconvert-uulib-perl (0.212-1) unstable; urgency=low
+
+  * New upstream version.
+
+ -- Graeme Mathieson <mathie@wossname.org.uk>  Tue, 14 May 2002 14:25:35 +0100
+
+libconvert-uulib-perl (0.201-2) unstable; urgency=low
+
+  * Fix spelling mistake in the description. (Closes: #124923)
+  * Run the testsuite as part of the build. (Closes: #123858)
+  * Update maintainer's email address.
+
+ -- Graeme Mathieson <mathie@wossname.org.uk>  Mon,  4 Feb 2002 04:32:12 +0000
+
+libconvert-uulib-perl (0.201-1) unstable; urgency=low
+
+  * New upstream release.
+
+ -- Graeme Mathieson <graeme@mathie.cx>  Thu, 22 Nov 2001 17:52:15 +0000
+
+libconvert-uulib-perl (0.111-1) unstable; urgency=low
+
+  * Initial release.
+
+ -- Graeme Mathieson <graeme@mathie.cx>  Tue, 19 Jun 2001 17:16:38 +0100

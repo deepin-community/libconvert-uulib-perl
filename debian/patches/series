@@ -1,0 +1,4 @@
+# Convert-UUlib upstream strongly discourages linking against official libuu.
+#2001_link_against_libuu-dev.patch
+#2002_strip_stuff_not_in_libuu-dev.patch
+pod-spelling.patch

@@ -1,0 +1,23 @@
+--- libconvert-uulib-perl-0.310.orig/UUlib.xs
++++ libconvert-uulib-perl-0.310/UUlib.xs
+@@ -62,7 +62,6 @@
+ 	if (strEQ(name, "OPT_ENCEXT")) return UUOPT_ENCEXT;
+ 	if (strEQ(name, "OPT_REMOVE")) return UUOPT_REMOVE;
+ 	if (strEQ(name, "OPT_MOREMIME")) return UUOPT_MOREMIME;
+-	if (strEQ(name, "OPT_DOTDOT")) return UUOPT_DOTDOT;
+     case 'R':
+ 	if (strEQ(name, "RET_CANCEL")) return UURET_CANCEL;
+ 	if (strEQ(name, "RET_CONT")) return UURET_CONT;
+@@ -372,12 +371,6 @@
+ 	CODE:
+ 	UUSetFNameFilter (FUNC_CB(uu_fnamefilter));
+ 
+-void
+-UUSetFileNameCallback (func = 0)
+-	SV *	func
+-	CODE:
+-	UUSetFileNameCallback (FUNC_CB(uu_filename));
+-
+ char *
+ UUFNameFilter (fname)
+ 	char *	fname

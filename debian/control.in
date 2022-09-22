@@ -1,0 +1,24 @@
+Source: libconvert-uulib-perl
+Section: perl
+Priority: optional
+Build-Depends: @cdbs@
+Maintainer: Debian Perl Group <pkg-perl-maintainers@lists.alioth.debian.org>
+Uploaders: Jonas Smedegaard <dr@jones.dk>
+Standards-Version: 3.9.2
+Vcs-Git: git://git.debian.org/git/pkg-perl/packages/libconvert-uulib-perl
+Vcs-Browser: http://git.debian.org/?p=pkg-perl/packages/libconvert-uulib-perl.git
+Homepage: http://search.cpan.org/dist/Convert::UUlib/
+
+Package: libconvert-uulib-perl
+Architecture: any
+Depends: ${perl:Depends}, ${shlibs:Depends}, ${misc:Depends}
+Description: Perl interface to the uulib library (a.k.a. uudeview/uuenview)
+ Convert::UUlib is a versatile and powerful decoder/encoder library
+ for a variety of encodings used in Usenet and Mail (uuencode,
+ xxencode, b64, binhex...).
+ .
+ The library contains a variety of heuristics to reliably decode
+ any files found in the input files, whether part of a single
+ mail folder or spread over hundreds of files. Its two-pass
+ architecture makes it possible to decode hundreds of megabytes in
+ one sweep, without using much virtual memory.

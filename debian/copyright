@@ -1,0 +1,87 @@
+Format: http://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
+Upstream-Name: Convert::UUlib
+Upstream-Contact: Marc Lehmann <pcg@goof.com>
+Source: http://www.cpan.org/modules/by-module/Convert/
+ Repackaged, excluding files with source unavailable
+Files-Excluded: doc/library.pdf
+
+Files: *
+Copyright: Marc Lehmann <pcg@goof.com>
+License: Artistic or GPL-1+
+ This interface is distributed under the same license as perl itself,
+ i.e. either the Artistic License (COPYING.Artistic) or the GPL
+ (COPYING.GNU).
+Comment:
+ Perl is licensed under either the 'Artistic license' or the 'GNU
+ General Public License' version 1 or later.
+
+Files: uulib/*
+Copyright: 1994-2001, Frank Pilhofer <fp@fpx.de>
+License: GPL-2+
+
+Files: uulib/crc32.*
+Copyright: 1995-1998, Mark Adler <madler@alumni.caltech.edu>
+License: ZLIB
+
+Files: uulib/configure
+Copyright: 1992-1996, Free Software Foundation, Inc
+License: GAP~Configure
+
+Files: debian/*
+Copyright: 2003-2010, Jonas Smedegaard <dr@jones.dk>
+License: GPL-2+
+
+License: Artistic
+ This program is free software; you can redistribute it and/or modify
+ it under the terms of the Artistic License, which comes with Perl.
+Comment:
+ On Debian systems the 'Artistic License' is located in
+ '/usr/share/common-licenses/Artistic'.
+
+License: GAP~Configure
+ This configure script is free software; the Free Software Foundation
+ gives unlimited permission to copy, distribute and modify it.
+
+License: GPL-1+
+ This program is free software; you can redistribute it and/or modify
+ it under the terms of the GNU General Public License as published by
+ the Free Software Foundation; either version 1, or (at your option)
+ any later version.
+Comment:
+ On Debian systems the 'GNU General Public License' version 1 is located
+ in '/usr/share/common-licenses/GPL-1'.
+
+License: GPL-2+
+ This program is free software; you can redistribute it and/or modify it
+ under the terms of the GNU General Public License as published by the
+ Free Software Foundation; either version 2, or (at your option) any
+ later version.
+ .
+ This program is distributed in the hope that it will be useful, but
+ WITHOUT ANY WARRANTY; without even the implied warranty of
+ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+ General Public License for more details.
+Comment:
+ On Debian systems the 'GNU General Public License' version 2 is located
+ in '/usr/share/common-licenses/GPL-2'.
+ .
+ You should have received a copy of the 'GNU General Public License'
+ along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
+License: ZLIB
+ This software is provided 'as-is', without any express or implied
+ warranty.  In no event will the authors be held liable for any damages
+ arising from the use of this software.
+ .
+ Permission is granted to anyone to use this software for any purpose,
+ including commercial applications, and to alter it and redistribute it
+ freely, subject to the following restrictions:
+ .
+  1. The origin of this software must not be misrepresented; you must
+     not claim that you wrote the original software. If you use this
+     software in a product, an acknowledgment in the product
+     documentation would be appreciated but is not required.
+  2. Altered source versions must be plainly marked as such, and must
+     not be misrepresented as being the original software.
+  3. This notice may not be removed or altered from any source
+     distribution.
